@@ -1,22 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ChevronRight } from '@styled-icons/bootstrap/ChevronRight'
-// const Button = styled('button')(
-//     variant({
-//       scale: 'buttons',
-//       variants: {
-//         primary: {
-//           color: 'black',
-//           bg: 'primary',
-//         },
-//         secondary: {
-//           color: 'white',
-//           bg: 'secondary',
-//         },
-//       },
-//     })
-//   )
-//   export  {Button};
 
 enum VARIANT {
   PRIMARY,
@@ -56,8 +40,6 @@ const Buttons = styled.button<IProps>`
 
 interface Props {
   className?: string;
-  fontSize?: any;
-  color?: string;
 }
 const Button: React.FC<Props> = ({ className, children }) => {
   return (
