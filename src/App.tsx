@@ -1,31 +1,47 @@
-import React from 'react';
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button from './components/Button';
-import Theme from './Theme';
+import Button, { VARIANT } from './components/Button';
+
 import Header from './components/header/Header';
+import ButtonGroup from './components/loginMethod/ButtonGroup';
+import Inputs from './components/inputs/Input';
+import Line from './components/Line';
+
 
 function App() {
+  const [isPhone, setIsPhone] = useState(false);
+  const [isValidInput, setIsValidInput] = useState(false)
+
   return (
-    <Theme>
+    <>
       <div className="App">
         <Header props />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button>Primary</Button>
+        <ButtonGroup isPhone={isPhone} clicked={(val) => {
+          setIsPhone(val)
+        }} />
+        <Inputs isPhone={isPhone} isValid={(valid) => {
+          setIsValidInput(valid)
+        }} />
 
+        <Button variant={isValidInput ? VARIANT.PRIMARY : VARIANT.DISABLED} navigateRouteName="verification" >Continue</Button>
+        <div style={{ height: 10 }}>
+          by clicking continue you must agree to near labs Terms & Conditions ans Privacy Policy
+
+        </div>
+        <div>
+          <Line />
+        </div>
+        <div style={{ height: 10 }}>
+          Already have NEAR account?
+
+        </div>
+        <div style={{ height: 60, marginTop: 20 }}>
+          <Button variant={VARIANT.SECONDARY} navigateRouteName="verification" >Log in with near</Button>
+
+        </div>
       </div>
-    </Theme>
+    </>
   );
 }
 

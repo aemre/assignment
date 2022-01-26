@@ -1,0 +1,3 @@
+export const LOGIN_WITH_PHONE = "LOGIN_WITH_PHONE";
+export const LOGIN_WITH_MAIL = "LOGIN_WITH_MAIL";
+export const OTP_CODE_ENTERED = "OTP_CODE_ENTERED";
